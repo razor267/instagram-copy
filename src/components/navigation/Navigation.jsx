@@ -4,33 +4,50 @@ import heart from "./../../assets/images/heart.png";
 import explore from "./../../assets/images/explore.png";
 import more from "./../../assets/images/more.png";
 import send from "./../../assets/images/send.png";
+import { NavLink } from "react-router-dom";
+import s from "./navigation.module.css";
 
 const Navigation = () => {
   return (
-    <div>
-      <a href="#">
-        <img src={home} alt="Home" width="24" height="24" />
-      </a>
-      <a href="">
-        <img src={send} alt="" width="24" height="24" />
-      </a>
-      <a href="">
-        <img src={more} alt="" width="24" height="24" />
-      </a>
-      <a href="">
-        <img src={explore} alt="" width="24" height="24" />
-      </a>
-      <a href="">
-        <img src={heart} alt="" width="24" height="24" />
-      </a>
-      <a href="">
-        <img
-          src="https://via.placeholder.com/24"
-          alt=""
-          width="24"
-          height="24"
-        />
-      </a>
+    <div className={s.nav}>
+      <ul>
+        <li>
+          <NavLink to="/home">
+            <img src={home} alt="Home" width="24" height="24" />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/send">
+            <img src={send} alt="" width="24" height="24" />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/more">
+            <img src={more} alt="" width="24" height="24" />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/explore">
+            <img src={explore} alt="" width="24" height="24" />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/heart">
+            <img src={heart} alt="" width="24" height="24" />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/profile">
+            <img
+              className={s.profileImg}
+              src="https://via.placeholder.com/24"
+              alt="profile"
+              width="24"
+              height="24"
+            />
+          </NavLink>
+        </li>
+      </ul>
     </div>
   );
 };
