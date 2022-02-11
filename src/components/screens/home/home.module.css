@@ -5,37 +5,16 @@
 }
 .content {
   display: flex;
-  margin-top: 60px;
+  margin-top: 90px;
   max-width: 975px;
   justify-content: space-between;
 }
-
-.card {
-  display: flex;
-  background-color: #fff;
-  margin-top: 30px;
-  flex-direction: column;
-  width: 600px;
-  margin-right: 28px;
-  border: 1px solid #dbdbdb;
-}
-.photos {
-  position: relative;
-  height: 600px;
-  overflow: hidden;
-}
-.photosImg {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+@media (max-width: 992px) {
+  .content {
+    display: block;
+  }
 }
 
-.header {
-  padding: 14px 4px 14px 16px;
-  height: 60px;
-}
 .writeComment {
   display: flex;
   justify-content: space-between;

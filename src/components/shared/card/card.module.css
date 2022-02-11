@@ -1,0 +1,106 @@
+.card {
+  display: flex;
+  background-color: #fff;
+  margin-bottom: 30px;
+  flex-direction: column;
+  width: 600px;
+  margin-right: 28px;
+  border: 1px solid #dbdbdb;
+}
+
+.header {
+  display: flex;
+  padding: 14px 4px 14px 16px;
+  height: 60px;
+  justify-content: space-between;
+  align-items: center;
+}
+.btnMore {
+  width: 40px;
+  height: 40px;
+  background: inherit;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s linear;
+}
+
+.btnMore:hover {
+  transform: scale(1.2);
+}
+
+.kebabMenu,
+.kebabMenu::before,
+.kebabMenu::after {
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  margin: 0 auto;
+}
+
+.kebabMenu::before,
+.kebabMenu::after {
+  content: "";
+}
+
+.kebabMenu::before {
+  left: 9px;
+}
+
+.kebabMenu::after {
+  right: 9px;
+}
+
+.photos {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+
+.photosImg {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.comments {
+  margin-left: 30px;
+}
+
+.description,
+.date {
+  margin-left: 20px;
+}
+
+.commentator {
+  font-size: 16px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.message {
+  font-size: 14px;
+  font-style: italic;
+}
+
+@media (max-width: 992px) {
+  .card {
+    margin-right: 0;
+  }
+}
+@media (max-width: 640px) {
+  .card {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .photos {
+    position: relative;
+    height: 100vw;
+    overflow: hidden;
+  }
+  .photosImg {
+    height: 100%;
+    width: auto;
+  }
+}

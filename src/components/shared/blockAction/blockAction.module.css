@@ -1,0 +1,11 @@
+.blockAction {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.btn {
+  background: inherit;
+  border: none;
+  cursor: pointer;
+}

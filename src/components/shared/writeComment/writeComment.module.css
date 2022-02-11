@@ -1,0 +1,27 @@
+.writeComment {
+  display: flex;
+  justify-content: space-between;
+  min-height: 60px;
+}
+.emojiBtn {
+  width: 60px;
+  height: 60px;
+}
+
+.textarea {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  min-height: 60px;
+  max-height: 300px;
+  resize: none;
+}
+
+.publichBtn {
+  height: 60px;
+  background: inherit;
+  border: none;
+  color: #2d4ddd;
+}
