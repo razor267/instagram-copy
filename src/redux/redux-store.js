@@ -11,3 +11,5 @@ let store = createStore(reducers);
 window.store = store;
 
 export default store;
+
+// утановить ReduxToolkit и использовать его функции, чтобы в дальнейшем уменьшить код

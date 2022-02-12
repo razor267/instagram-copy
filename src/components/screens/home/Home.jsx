@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Card from "../../shared/card/Card";
+import Footer from "../../footer/Footer"
 import s from "./home.module.css";
 
 const Home = () => {
@@ -15,16 +16,14 @@ const Home = () => {
     <div className={s.home}>
       <div className={s.content}>
         <div>
-          {/* здесь должны мапить массив получаемый из BLL с постами-карточками 
-            массив.map((el) => {<Card key=el.key card=el.card/>})
-          */}
           {cardEl}
         </div>
 
         <div>
           <div>Информация об аккаунте</div>
           <div>Рекомендации для вас</div>
-          <div>Хедер?</div>
+          <Footer />
+            
         </div>
       </div>
     </div>
