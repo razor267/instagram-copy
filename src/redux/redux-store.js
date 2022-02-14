@@ -3,7 +3,7 @@ import postsCardReducer from "./redusers/postsCardReducer";
 
 const reducers = combineReducers({
   //наши редьюсеры
-  postsCardReducer: postsCardReducer,
+  postsCard: postsCardReducer,
 });
 
 let store = createStore(reducers);

@@ -5,12 +5,11 @@ import s from "./card.module.css";
 import { NavLink } from "react-router-dom";
 
 const Card = (props) => {
-  debugger;
   const nickName = props.nickName || "NoName";
 
   const commentEl = props.comments.map((el) => {
     return (
-      <div className={s.comment}>
+      <div key={el.id} className={s.comment}>
         <span className={s.commentator}>{el.nickname}</span>
         <span className={s.message}>{el.message}</span>
       </div>
@@ -28,7 +27,7 @@ const Card = (props) => {
         </div>
         <div className={s.photos}>
           {/* Сделать обработку изображения до квадрата */}
-          <img className={s.photosImg} src={props.img} alt="1" />
+          <img className={s.photosImg} src={props.img} alt="image" />
         </div>
         <BlockAction />
         <div className={s.description}>{props.description}</div>

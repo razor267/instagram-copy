@@ -1,14 +1,14 @@
 .nav {
   display: flex;
 }
-ul {
+.list {
   display: flex;
   padding: 0;
   margin: 0;
   list-style: none;
   align-items: center;
 }
-li {
+.item {
   align-items: center;
   padding-right: 10px;
 }

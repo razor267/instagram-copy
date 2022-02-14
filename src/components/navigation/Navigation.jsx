@@ -10,33 +10,33 @@ import s from "./navigation.module.css";
 const Navigation = () => {
   return (
     <div className={s.nav}>
-      <ul>
-        <li>
+      <ul className={s.list}>
+        <li className={s.item}>
           <NavLink to="/home">
             <img src={home} alt="Home" width="24" height="24" />
           </NavLink>
         </li>
-        <li>
+        <li className={s.item}>
           <NavLink to="/send">
             <img src={send} alt="" width="24" height="24" />
           </NavLink>
         </li>
-        <li>
+        <li className={s.item}>
           <NavLink to="/more">
             <img src={more} alt="" width="24" height="24" />
           </NavLink>
         </li>
-        <li>
+        <li className={s.item}>
           <NavLink to="/explore">
             <img src={explore} alt="" width="24" height="24" />
           </NavLink>
         </li>
-        <li>
+        <li className={s.item}>
           <NavLink to="/heart">
             <img src={heart} alt="" width="24" height="24" />
           </NavLink>
         </li>
-        <li>
+        <li className={s.item}>
           <NavLink to="/profile">
             <img
               className={s.profileImg}
