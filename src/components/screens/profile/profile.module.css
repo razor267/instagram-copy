@@ -7,7 +7,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  margin-top: 90px;
+  margin-top: 30px;
   max-width: 975px;
   justify-content: space-between;
   padding: 0 20px 0;
