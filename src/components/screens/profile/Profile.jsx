@@ -4,6 +4,9 @@ import { Publications } from "../../publications/Publications";
 import Footer from "../../footer/Footer";
 import setting from "../../../assets/images/setting.svg";
 import s from "./profile.module.css";
+import { ProfileNav } from "../../profileNav/ProfileNav";
+import { Modal } from "../../modals/Modal";
+import { useState } from "react";
 
 const footerStyle = {
   footer: s.footer,
@@ -16,6 +19,33 @@ const footerStyle = {
 };
 
 export const Profile = () => {
+  const [isModal, setModal] = useState(false);
+  const [isContent, setContent] = useState();
+  const [isTitle, setTitle] = useState();
+  const [isHeader, setHeader] = useState(false);
+  const onClose = () => setModal(false);
+
+  const onFollowers = () => {
+    setTitle("Подписчики");
+    setContent(<>наш компонент со списком подписчиков</>);
+    setModal(true);
+    setHeader(true);
+  };
+
+  const onSubsrcibes = () => {
+    setTitle("Подписки");
+    setContent(<>наш компонент со списком подписок</>);
+    setModal(true);
+    setHeader(true);
+  };
+
+  const onSetting = () => {
+    setTitle("");
+    setContent(<>Ну получается тут будет список настроек</>);
+    setModal(true);
+    setHeader(false);
+  };
+
   return (
     <div className={s.profile}>
       <div className={s.content}>
@@ -32,10 +62,10 @@ export const Profile = () => {
           <section>
             <div className={s.profileInfo}>
               <span className={s.nickName}>Nickname</span>
-              <NavLink to="/" className={s.link}>
+              <NavLink to="/accounts/edit/" className={s.link}>
                 Редактировать профиль
               </NavLink>
-              <button className={s.btn}>
+              <button className={s.btn} onClick={onSetting}>
                 <img src={setting} alt="setting" />
               </button>
             </div>
@@ -45,16 +75,22 @@ export const Profile = () => {
                 <span> Публикаций</span>
               </li>
               <li className={s.item}>
-                <NavLink to="/" className={s.itemLink}>
+                <button
+                  className={s.itemLink + " " + s.btn}
+                  onClick={onFollowers}
+                >
                   <span>3</span>
                   <span> подписчиков</span>
-                </NavLink>
+                </button>
               </li>
               <li className={s.item}>
-                <NavLink to="/" className={s.itemLink}>
+                <button
+                  className={s.itemLink + " " + s.btn}
+                  onClick={onSubsrcibes}
+                >
                   <span>2</span>
                   <span> подписок</span>
-                </NavLink>
+                </button>
               </li>
             </ul>
             <div className={s.description}>
@@ -63,10 +99,19 @@ export const Profile = () => {
             </div>
           </section>
         </header>
-        <div>
-          <Publications />
-        </div>
+        <ProfileNav />
+
+        <Publications />
+
         <Footer {...footerStyle} />
+
+        <Modal
+          visible={isModal}
+          title={isTitle}
+          content={isContent}
+          onClose={onClose}
+          isHeader={isHeader}
+        />
       </div>
     </div>
   );
