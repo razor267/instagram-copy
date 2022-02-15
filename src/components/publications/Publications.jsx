@@ -1,48 +1,33 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import plugs from "../../assets/images/plugs.png";
+import { Route, Routes } from "react-router-dom";
 import s from "./publications.module.css";
+import plugs from "../../assets/images/plugs.png";
+import { SavedPublic } from "./SavedPublic";
 
 export const Publications = () => {
   const isContent = false;
   return (
     <div>
-      <nav className={s.nav}>
-        <ul className={s.list}>
-          <li className={s.item}>
-            <NavLink to="/" className={s.link}>
-              <span>
-                <img src="" alt="" />
-                Публикации
-              </span>
-            </NavLink>
-          </li>
-          <li className={s.item}>
-            <NavLink to="/" className={s.link}>
-              <span>
-                <img src="" alt="" />
-                Сохраненное
-              </span>
-            </NavLink>
-          </li>
-          <li className={s.item}>
-            <NavLink to="/" className={s.link}>
-              <span>
-                <img src="" alt="" />
-                Отметки
-              </span>
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
       <div className={s.content}>
-        {!isContent ? (
-          <div>
-            <img src={plugs} alt="Заглушка" />
-          </div>
-        ) : (
-          <div>Карточки</div>
-        )}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div>
+                {" "}
+                {!isContent ? (
+                  <div>
+                    <img src={plugs} alt="Заглушка" />
+                  </div>
+                ) : (
+                  <div>Карточки</div>
+                )}
+              </div>
+            }
+          />
+          <Route path="/saved" element={<SavedPublic />} />
+          <Route path="/marker" element={<>Отмечетки на карточках</>} />
+        </Routes>
       </div>
     </div>
   );
