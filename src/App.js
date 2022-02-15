@@ -9,7 +9,8 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/*" element={<Profile />} />
+        <Route path="/accounts/edit/" element={<> 1231</>} />
       </Routes>
     </div>
   );
