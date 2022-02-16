@@ -33,9 +33,8 @@ const initialState = {
   ],
 };
 
-const postsCardReducer = (state = initialState, action) => {
+export const postsCardReducer = (state = initialState, action) => {
   switch (action.type) {
   }
   return state;
 };
-export default postsCardReducer;
