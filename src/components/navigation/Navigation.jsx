@@ -1,6 +1,6 @@
 import React from "react";
 import home from "./../../assets/images/home.png";
-import heart from "./../../assets/images/heart.png";
+import heart from "./../../assets/images/heart.svg";
 import explore from "./../../assets/images/explore.png";
 import more from "./../../assets/images/more.png";
 import send from "./../../assets/images/send.png";

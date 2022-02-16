@@ -1,8 +1,6 @@
 .card {
-  display: flex;
   background-color: #fff;
   margin-bottom: 30px;
-  flex-direction: column;
   width: 600px;
   margin-right: 28px;
   border: 1px solid #dbdbdb;
@@ -66,12 +64,16 @@
   top: 0;
 }
 .comments {
-  margin-left: 30px;
+  background: none;
+  border: none;
+  margin-bottom: 4px;
+  padding: 0 16px;
+  cursor: pointer;
 }
 
 .description,
 .date {
-  margin-left: 20px;
+  margin-left: 16px;
 }
 
 .commentator {

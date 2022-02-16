@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import BlockAction from "../blockAction/BlockAction";
 import WriteComment from "../writeComment/WriteComment";
 import s from "./card.module.css";
 import { NavLink } from "react-router-dom";
+import { Modal } from "../../modals/Modal";
+import { ModalCard } from "./ModalCard";
 
 const Card = (props) => {
+  const [isModal, setModal] = useState(false);
+  const [isContent, setContent] = useState();
+  const [isTitle, setTitle] = useState();
+  const [isHeader, setHeader] = useState(false);
+  const onClose = () => setModal(false);
+
   const nickName = props.nickName || "NoName";
 
   const commentEl = props.comments.map((el) => {
@@ -15,6 +23,15 @@ const Card = (props) => {
       </div>
     );
   });
+
+  const onCard = () => {
+    setTitle("");
+    setContent(
+      <ModalCard commentEl={commentEl} nickName={nickName} img={props.img} />
+    );
+    setModal(true);
+    setHeader(false);
+  };
 
   return (
     <>
@@ -31,10 +48,19 @@ const Card = (props) => {
         </div>
         <BlockAction />
         <div className={s.description}>{props.description}</div>
-        <div className={s.comments}>{commentEl}</div>
+        <button className={s.comments} onClick={onCard}>
+          Посмотреть все коментарии{/*{commentEl}*/}
+        </button>
         <div className={s.date}>{props.date}</div>
         <WriteComment />
       </article>
+      <Modal
+        visible={isModal}
+        title={isTitle}
+        content={isContent}
+        onClose={onClose}
+        isHeader={isHeader}
+      />
     </>
   );
 };

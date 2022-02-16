@@ -13,7 +13,7 @@
 }
 
 .dialog {
-  width: 400px;
+  width: auto;
   max-height: 400px;
   min-height: 200px;
   background: white;
