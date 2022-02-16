@@ -3,18 +3,18 @@ const ADD_MESSAGE = "ADD_MESSAGE"
 const initialState = {
     users:[
         {id: 1,
-        nickname: qwe1,
+        nickname: "qwe1",
         messages: [
             {id: 1, message: "sadsad"}, {id: 2, message: "2223"}
         ]
         },
         {id: 2,
-            nickname: qee,
+            nickname: "qee",
             messages: [
                 {id: 1, message: "ddsad"}, {id: 2, message: "2ddd3"} , {id: 2, message: "2ddd3"}
             ]},
         {id: 3,
-            nickname: wre21,
+            nickname: "wre21",
             messages: [
                 {id: 1, message: "32q"}, {id: 2, message: "54w3"}
             ]}
