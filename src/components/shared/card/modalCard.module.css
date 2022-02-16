@@ -1,0 +1,80 @@
+.modalCard {
+  display: flex;
+  height: 100%;
+  margin: 0;
+  max-height: 100%;
+  overflow: auto;
+
+  width: 100%;
+}
+.photos {
+  max-height: 921px;
+  max-width: 921px;
+
+  flex-basis: 921px;
+  background-color: #000;
+  flex-grow: 1;
+  justify-content: center;
+  min-height: 450px;
+  overflow: hidden;
+  flex-shrink: 1;
+}
+
+.right {
+  display: block;
+  position: relative;
+  padding-left: 16px;
+  flex-grow: 1;
+  flex-shrink: 2;
+  max-width: 500px;
+  min-width: 405px;
+}
+.header {
+  display: flex;
+  padding: 14px 4px 14px 16px;
+  height: 60px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #4e4e4ed5;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+
+.kebabMenu,
+.kebabMenu::before,
+.kebabMenu::after {
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  margin: 0 auto;
+}
+
+.kebabMenu::before,
+.kebabMenu::after {
+  content: "";
+}
+
+.kebabMenu::before {
+  left: 9px;
+}
+
+.kebabMenu::after {
+  right: 9px;
+}
+.btnMore {
+  width: 40px;
+  height: 40px;
+  background: inherit;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s linear;
+}
+
+.btnMore:hover {
+  transform: scale(1.2);
+}

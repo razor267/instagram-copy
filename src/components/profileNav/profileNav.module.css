@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #dbdbdb;
+}
+.list {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  height: 52px;
+}
+.item {
+  margin: -1px 60px 0 0;
+}
+.link {
+  text-transform: uppercase;
+  align-items: center;
+  color: #262626;
+  text-decoration: none;
+}

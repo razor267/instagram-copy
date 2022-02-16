@@ -1,29 +1,39 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Card from "../../shared/card/Card";
-import Footer from "../../footer/Footer"
+import Footer from "../../footer/Footer";
 import s from "./home.module.css";
 
 const Home = () => {
-  const card = useSelector((state) => state.postsCardReducer.card);
-  debugger;
+  const card = useSelector((state) => state.postsCard.card);
+
+  const footerStyle = {
+    footer: s.footer,
+    link: s.link,
+    item: s.item,
+    copyright: s.copyright,
+    nav: s.nav,
+    list: s.list,
+    btn: s.btn,
+  };
+
   let cardEl = card.map((el) => {
-    debugger;
-    return <Card {...el} />;
+    return (
+      <div key={el.id}>
+        <Card {...el} />
+      </div>
+    );
   });
 
   return (
     <div className={s.home}>
       <div className={s.content}>
-        <div>
-          {cardEl}
-        </div>
+        <div>{cardEl}</div>
 
         <div>
           <div>Информация об аккаунте</div>
           <div>Рекомендации для вас</div>
-          <Footer />
-            
+          <Footer {...footerStyle} />
         </div>
       </div>
     </div>
