@@ -1,0 +1,30 @@
+.direct {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  height: 100%;
+}
+.content {
+  display: flex;
+  max-width: 935px;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border: 1px solid #dbdbdb;
+}
+.left {
+  width: 350px;
+  border-right: 1px solid #dbdbdb;
+  overflow: hidden;
+}
+.header {
+  display: flex;
+  border-bottom: 1px solid #dbdbdb;
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
