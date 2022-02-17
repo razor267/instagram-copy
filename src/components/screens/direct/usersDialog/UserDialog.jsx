@@ -1,9 +1,8 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 
-const MessageList = (props) => {
-  debugger;
+const MessageList = (props) => { 
   return props.messages.map((m) => {
-    debugger;
     return <MessageItem message={m.message} />;
   });
 };
@@ -13,12 +12,25 @@ const MessageItem = (props) => {
 };
 
 export const UserDialog = (props) => {
-  debugger;
+  const { register, handleSubmit } = useForm();
+
   const messageItemEl = props.user.map((el) => {
     return <MessageList messages={el.messages} />;
   });
+  
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
-  return <div>{messageItemEl}</div>;
+  return <>
+  <div>{messageItemEl}</div>
+  <div>
+    <form onSubmit={handleSubmit(onSubmit)}> 
+      <textarea {...register("comment")} placeholder="Напишите сообщение"/>
+      <button>Отправить</button>
+    </form>
+  </div>
+  </>
 };
 
 //sendMessageClick
