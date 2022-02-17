@@ -1,13 +1,11 @@
 import { combineReducers, createStore } from "redux";
 import { directReduser } from "./redusers/directReducer";
-import {postsCardReducer} from "./redusers/postsCardReducer";
+import { postsCardReducer } from "./redusers/postsCardReducer";
 
 const reducers = combineReducers({
-  //наши редьюсеры
-
-  postsCardReducer: postsCardReducer,
-  directReducer: directReduser
-})
+  postsCard: postsCardReducer,
+  directReducer: directReduser,
+});
 let store = createStore(reducers);
 
 window.store = store;
