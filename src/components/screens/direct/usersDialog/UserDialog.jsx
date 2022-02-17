@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+
 import { sendMessageClick } from "../../../../redux/redusers/directReducer"
 
 const MessageList = (props) => { 
@@ -15,16 +15,18 @@ const MessageItem = (props) => {
 
 export const UserDialog = (props) => {
   const { register, handleSubmit } = useForm();
-  const dispath = useDispatch();
   
-  const id = props.id;
+  
+  const id = props.userId;
 
   const messageItemEl = props.user.map((el) => {
     return <MessageList messages={el.messages} />;
   });
   
   const onSubmit = (value) => {
-    dispath(sendMessageClick(id, value.newMessageText))
+    debugger
+    console.log(value)
+    props.sendMessageClick(id, value.newMessageText)
     
   };
 
@@ -32,7 +34,7 @@ export const UserDialog = (props) => {
   <div>{messageItemEl}</div>
   <div>
     <form onSubmit={handleSubmit(onSubmit)}> 
-      <textarea {...register("comment")} value={props.newMessageText} placeholder="Напишите сообщение"/>
+      <textarea {...register("newMessageText")} value={props.newMessageText} placeholder="Напишите сообщение"/>
       <button>Отправить</button>
     </form>
   </div>
