@@ -25,7 +25,7 @@ export const Direct = () => {
           <UsersDialogsList />
         </div>
         <div className={s.right}>
-          <UserDialog user={user} userId={userId} />
+          <UserDialog user={user} userId={userId}  />
         </div>
       </section>
     </div>
