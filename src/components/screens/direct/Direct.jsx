@@ -1,14 +1,23 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import s from "./direct.module.css";
-import { UserDialog } from "./usersDialog/UserDialog";
+import { useParams } from "react-router-dom";
 import { UsersDialogsList } from "./usersDialog/UsersDialogsList";
+import { UserDialog } from "./usersDialog/UserDialog";
+import s from "./direct.module.css";
 
 export const Direct = () => {
-  const users = useSelector((state)=>state.directReducer.users)
-  const userListEl = users.map(el => <>{/**/}</> )
-  /*const userListEl = получаемый массив юзеров мапим на элементы */
+  const users = useSelector((state) => state.directReducer.users);
+  const paramsUserId = useParams();
+  let userId = paramsUserId.id;
+  if (!userId) {
+    userId = "";
+  }
+
+  const user = users.filter((i) => {
+    return i.id === userId;
+  });
+
+  console.log(user);
   return (
     <div className={s.direct}>
       <section className={s.content}>
@@ -16,7 +25,7 @@ export const Direct = () => {
           <UsersDialogsList />
         </div>
         <div className={s.right}>
-          <UserDialog />
+          <UserDialog user={user} userId={userId} />
         </div>
       </section>
     </div>

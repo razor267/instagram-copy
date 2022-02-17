@@ -1,16 +1,34 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import s from "../direct.module.css";
 
-export const UsersDialogsList = (props) => {
+const UsersDialogsItem = (props) => {
+  return (
+    <div>
+      <NavLink to={`/send/` + props.id}>{props.nickname}</NavLink>
+    </div>
+  );
+};
+
+export const UsersDialogsList = () => {
+  const users = useSelector((state) => state.directReducer.users);
+
   return (
     <div>
       <header className={s.header}>
-        <span>Nickname</span>
+        <span>nickname</span>
         <button>
           <img src="" alt="Написать сообщение" />
         </button>
       </header>
-      <div>{props.usersListEl}</div>
+      <div>
+        {users.map((el) => (
+          <div key={el.id}>
+            <UsersDialogsItem nickname={el.nickname} id={el.id} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
