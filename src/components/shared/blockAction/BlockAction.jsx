@@ -7,7 +7,7 @@ import direct from "../../../assets/images/direct.svg";
 import save from "../../../assets/images/save.svg";
 import saved from "../../../assets/images/saved.svg";
 
-const BlockAction = () => {
+const BlockAction = (props) => {
   let [isLike, setIsLike] = useState(false); //вместо фолс будет приходить props.isLike и дальше будут переработаны обрабочики
   let [isSaved, setIsSaved] = useState(false);
 
@@ -32,7 +32,7 @@ const BlockAction = () => {
             <img src={like} alt="like" width="24" />
           )}
         </button>
-        <button className={s.btn}>
+        <button className={s.btn} onClick={props.onCard}>
           <img src={comments} alt="Коментарии" />
         </button>
         <button className={s.btn}>

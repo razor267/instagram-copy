@@ -46,10 +46,10 @@ const Card = (props) => {
           {/* Сделать обработку изображения до квадрата */}
           <img className={s.photosImg} src={props.img} alt="image" />
         </div>
-        <BlockAction />
+        <BlockAction onCard={onCard} />
         <div className={s.description}>{props.description}</div>
         <button className={s.comments} onClick={onCard}>
-          Посмотреть все коментарии{/*{commentEl}*/}
+          Посмотреть все коментарии
         </button>
         <div className={s.date}>{props.date}</div>
         <WriteComment />
