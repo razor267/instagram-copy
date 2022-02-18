@@ -5,15 +5,9 @@ import {ModalCard} from "../shared/card/ModalCard";
 export const Modal = ({
                         visible = false,
                         title = "",
-                        // content = "",
+                        content = "",
                         isHeader,
-                        onClose,
-                        sendMessageComment,
-                        id,
-                        commentEl,
-                        nickName,
-                        img
-
+                        onClose
                       }) => {
   if (!visible) return null;
   return (
@@ -30,13 +24,7 @@ export const Modal = ({
               ""
           )}
           <div className={s.body}>
-            <div className={s.content}><ModalCard
-                sendMessageComment={sendMessageComment}
-                id={id}
-                commentEl={commentEl}
-                nickName={nickName}
-                img={img}
-            /></div>
+            <div className={s.content}>{content}</div>
           </div>
         </div>
       </div>

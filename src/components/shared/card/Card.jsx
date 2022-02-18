@@ -45,6 +45,14 @@ const Card = (props) => {
     setHeader(false);
   };
 
+  const content = <ModalCard
+      sendMessageComment={sendComment}
+      id={id}
+      commentEl={commentEl}
+      nickName={nickName}
+      img={props.img}
+  />;
+
   return (
       <>
         <article className={s.card}>
@@ -70,13 +78,9 @@ const Card = (props) => {
             visible={isModal}
             title={isTitle}
             // content={isContent}
+            content={content}
             onClose={onClose}
             isHeader={isHeader}
-            sendMessageComment={sendComment}
-            id={id}
-            commentEl={commentEl}
-            nickName={nickName}
-            img={props.img}
         />
       </>
   );
