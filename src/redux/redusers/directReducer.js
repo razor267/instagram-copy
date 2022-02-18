@@ -5,10 +5,7 @@ const initialState = {
     {
       id: "1",
       nickname: "qwe1",
-      messages: [
-        { message: "sadsad" },
-        { message: "2223" },
-      ],
+      messages: [{ message: "sadsad" }, { message: "2223" }],
     },
     {
       id: "2",
@@ -22,10 +19,7 @@ const initialState = {
     {
       id: "3",
       nickname: "wre21",
-      messages: [
-        { message: "32q" },
-        { message: "54w3" },
-      ],
+      messages: [{ message: "32q" }, { message: "54w3" }],
     },
   ],
 };
@@ -58,7 +52,7 @@ export const directReduser = (state = initialState, action) => {
 
 export const sendMessageClick = (id, newMessageText) => {
   return {
-    type: "ADD-MESSAGE",
+    type: "ADD_MESSAGE",
     id,
     newMessageText,
   };
