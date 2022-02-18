@@ -5,8 +5,10 @@ import s from "./writeComment.module.css";
 const WriteComment = (props) => {
   let [isEmoji, setIsEmoji] = useState(true); // захардкодил true пока не настроил пропсы, далее будет пропсах будет приходть значение
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const id = props.id;
+  const onSubmit = (value) => {
+    props.sendMessageComment(id, value.newMessageComment);
   };
   if (props.isEmoji) {
     setIsEmoji(props.isEmoji);
@@ -18,8 +20,9 @@ const WriteComment = (props) => {
         {isEmoji ? <button className={s.emojiBtn}>Эмоджи</button> : ""}
         <textarea
           className={s.textarea}
+          value={props.newMessageComment}
           placeholder="Добавте коментарий..."
-          {...register("comment")}
+          {...register("newMessageComment")}
         />
         <button className={s.publichBtn}>Опубликовать</button>
       </form>

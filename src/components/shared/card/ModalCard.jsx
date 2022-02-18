@@ -21,7 +21,10 @@ export const ModalCard = (props) => {
         <div>{props.commentEl}</div>
         <div className={s.footer}>
           <BlockAction />
-          <WriteComment />
+          <WriteComment
+            sendMessageComment={props.sendMessageComment}
+            id={props.id}
+          />
         </div>
       </div>
     </div>

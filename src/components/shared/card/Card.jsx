@@ -5,6 +5,8 @@ import s from "./card.module.css";
 import { NavLink } from "react-router-dom";
 import { Modal } from "../../modals/Modal";
 import { ModalCard } from "./ModalCard";
+import { useDispatch } from "react-redux";
+import { sendMessageComment } from "../../../redux/redusers/postsCardReducer";
 
 const Card = (props) => {
   const [isModal, setModal] = useState(false);
@@ -12,12 +14,16 @@ const Card = (props) => {
   const [isTitle, setTitle] = useState();
   const [isHeader, setHeader] = useState(false);
   const onClose = () => setModal(false);
+  const dispatch = useDispatch();
 
+  const sendComment = (id, newMessageComment) =>
+    dispatch(sendMessageComment(id, newMessageComment));
   const nickName = props.nickName || "NoName";
+  const id = props.id;
 
   const commentEl = props.comments.map((el) => {
     return (
-      <div key={el.id} className={s.comment}>
+      <div className={s.comment}>
         <span className={s.commentator}>{el.nickname}</span>
         <span className={s.message}>{el.message}</span>
       </div>
@@ -27,7 +33,13 @@ const Card = (props) => {
   const onCard = () => {
     setTitle("");
     setContent(
-      <ModalCard commentEl={commentEl} nickName={nickName} img={props.img} />
+      <ModalCard
+        sendMessageComment={sendComment}
+        id={id}
+        commentEl={commentEl}
+        nickName={nickName}
+        img={props.img}
+      />
     );
     setModal(true);
     setHeader(false);
@@ -52,7 +64,7 @@ const Card = (props) => {
           Посмотреть все коментарии
         </button>
         <div className={s.date}>{props.date}</div>
-        <WriteComment />
+        <WriteComment sendMessageComment={sendComment} id={props.id} />
       </article>
       <Modal
         visible={isModal}
