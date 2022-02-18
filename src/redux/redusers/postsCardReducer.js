@@ -1,3 +1,5 @@
+const ADD_COMMENT = "ADD_COMMENT";
+
 const initialState = {
   card: [
     {
@@ -7,12 +9,10 @@ const initialState = {
       description: "это где то в Европе",
       comments: [
         {
-          id: 1,
           nickname: "Kirill",
           message: "Необычный дом",
         },
         {
-          id: 2,
           nickname: "agent",
           message: "как много окон",
         },
@@ -40,6 +40,34 @@ const initialState = {
 
 export const postsCardReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ADD_COMMENT:
+      if (state.newMessageComment !== "") {
+        const newComment = { message: action.newMessageComment };
+        return {
+          ...state,
+          card: [
+            ...state.card.map((el) => {
+              debugger;
+              if (el.id === action.id) {
+                el.comments.push(newComment);
+                return { ...el };
+              }
+              return el;
+            }),
+          ],
+        };
+      } else {
+        return state;
+      }
+    default:
+      return state;
   }
-  return state;
+};
+
+export const sendMessageComment = (id, newMessageComment) => {
+  return {
+    type: ADD_COMMENT,
+    id,
+    newMessageComment,
+  };
 };
