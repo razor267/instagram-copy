@@ -27,16 +27,19 @@ export const UserDialog = (props) => {
   return (
     <>
       <div>{messageItemEl}</div>
-      <div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <textarea
-            {...register("newMessageText")}
-            value={props.newMessageText}
-            placeholder="Напишите сообщение"
-          />
-          <button>Отправить</button>
-        </form>
-      </div>
+      {id ? (
+        <div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <textarea
+              {...register("newMessageText")}
+              placeholder="Напишите сообщение"
+            />
+            <button>Отправить</button>
+          </form>
+        </div>
+      ) : (
+        ""
+      )}
     </>
   );
 };
